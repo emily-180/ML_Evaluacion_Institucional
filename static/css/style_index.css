@@ -1,0 +1,51 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #217544, #173b25);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo-cpa {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.btn-cpa {
+  background-color: #0d2f1b;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-cpa:hover {
+  background-color: #184d2c;
+}
+
+.forgot-link {
+  color: #a31818;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: #777;
+  font-size: 0.8rem;
+}
