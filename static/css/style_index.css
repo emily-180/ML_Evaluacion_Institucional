@@ -9,23 +9,32 @@ body {
 
 .login-card {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(228, 222, 222, 0.521);
+  padding: 3.5rem 2.5rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px; 
+  transform: scale(1.03); 
+  border: 3px solid #a31818;
 }
 
 .logo-cpa {
-  width: 100px;
-  margin-bottom: 1rem;
+  width: 120px; 
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.8rem; 
 }
 
 .btn-cpa {
-  background-color: #0d2f1b;
+  background-color: #1c6e3e;
   color: #fff;
   border: none;
   font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem; 
+  border-radius: 10px;
   transition: 0.3s;
 }
 
@@ -33,19 +42,17 @@ body {
   background-color: #184d2c;
 }
 
+.form-floating input {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
 .forgot-link {
   color: #a31818;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-decoration: none;
 }
 
 .forgot-link:hover {
   text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  margin-top: 1rem;
-  color: #777;
-  font-size: 0.8rem;
 }

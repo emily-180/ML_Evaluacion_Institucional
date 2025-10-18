@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 1: Entendimiento del negocio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="static/css/style_negocio.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="static/imagens/logo.png" width="80" alt="CPA">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCPA">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCPA">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown">Proyecto</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="negocio">Fase 1: Entendimiento del negocio</a></li>
+                            <li><a class="dropdown-item" href="datos">Fase 2: Entendimiento e ingeniería de datos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#projeto">Proyecto</a></li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-danger" href="#" onclick="logout()"><i
+                                class="bi bi-box-arrow-right fs-5"></i>Cerrar session</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="fw-bold">Fase 1: Entendimiento del negocio</h1>
+    </header>
+
+    <section id="titulo" class="container">
+        <h2>TÍTULO DEL PROYECTO</h2>
+        <div class="divider"></div>
+        <p>
+            Machine Learning aplicado a la Evaluación Institucional: Un Estudio con Datos de la CPA
+        </p>
+    </section>
+
+    <section id="plateamiento" class="container bg-light rounded shadow-sm">
+        <h2>PLANTEAMIENTO DEL PROBLEMA Y JUSTIFICACIÓN</h2>
+        <div class="divider"></div>
+        <p>
+            Las Comisiones Próprias de Evaluación (CPA) en las instituciones educativas brasileñas tienen la función de
+            recolectar y analizar las percepciones de la comunidad académica sobre la calidad educativa, la gestión
+            institucional y la infraestructura. Sin embargo, gran parte de estos datos son analizados de forma
+            descriptiva, limitando la identificación de patrones complejos o relaciones ocultas entre las respuestas.
+            <br><br>
+            Este proyecto propone aplicar técnicas de Machine Learning para analizar los datos obtenidos en las
+            encuestas de la CPA del Instituto Federal do Sul de Minas (IFSULDEMINAS) – Campus Machado. El objetivo es
+            descubrir patrones de satisfacción y percepción institucional que puedan servir como apoyo a la toma de
+            decisiones estratégicas y a la mejora continua de la calidad educativa.
+            <br><br>
+            El proyecto se alinea con el <strong>ODS 4 – Educación de Calidad</strong>, de la Agenda 2030 de la
+            Organización de las Naciones Unidas (ONU), cuyo propósito es “garantizar una educación inclusiva, equitativa
+            y de calidad, y promover oportunidades de aprendizaje durante toda la vida para todos” (ONU, 2015).
+            Entre las metas específicas del ODS 4 que fundamentan este proyecto, se destacan las metas 4.1, 4.3, 4.4,
+            4.7 y 4.a. 
+            <br><br>
+            La meta 4.1 propone asegurar que todos los estudiantes tengan acceso a una educación de calidad
+            que promueva resultados de aprendizaje pertinentes, principio directamente relacionado con las acciones de
+            la CPA, que busca evaluar y mejorar la calidad educativa. La meta 4.3 garantiza el acceso igualitario a la
+            formación técnica y superior, lo que refuerza la importancia del monitoreo continuo de la calidad
+            institucional llevado a cabo por la CPA.
+            <br><br>
+            Por su parte, la meta 4.4 enfatiza el desarrollo de competencias técnicas y profesionales, aspecto que se ve
+            fortalecido por los procesos evaluativos de la CPA, los cuales contribuyen al perfeccionamiento curricular y
+            al fortalecimiento de las prácticas pedagógicas. La meta 4.7 resalta la necesidad de promover una educación
+            orientada al desarrollo sostenible, principio reflejado en la metodología participativa y reflexiva de la
+            CPA, que busca involucrar a toda la comunidad académica en la construcción de una institución más justa y
+            sostenible.
+            <br><br>
+            De esta manera, el proyecto se fundamenta en las metas del ODS 4 mediante la aplicación de recursos
+            tecnológicos destinados a la mejora continua de la educación superior, la promoción de la equidad y la
+            valoración de la calidad institucional, contribuyendo directamente al cumplimiento de los compromisos
+            globales de la Agenda 2030.
+
+        </p>
+    </section>
+
+    <section id="ogeneral" class="container">
+        <h2>OBJETIVO GENERAL</h2>
+        <div class="divider"></div>
+        <p>
+            Aplicar técnicas de Machine Learning a los datos de evaluación institucional de la CPA con el fin de
+            identificar patrones y clasificar niveles de satisfacción de la comunidad académica.
+        </p>
+    </section>
+
+    <section id="especificos" class="container  bg-light rounded shadow-sm">
+        <h2>OBJETIVOS ESPECÍFICOS</h2>
+        <div class="divider"></div>
+        <p>
+            <strong>* </strong>Preprocesar y limpiar los datos de respuestas cerradas de la CPA, garantizando la calidad
+            y anonimato de la
+            información.
+            <br><br>
+            <strong>* </strong>Entrenar modelos de aprendizaje supervisado para clasificar niveles de satisfacción.
+            <br><br>
+            <strong>* </strong>Evaluar el rendimiento de los modelos aplicando métricas de precisión, recall y F1-score.
+            <br><br>
+            <strong>* </strong>Desarrollar una aplicación web interactiva con Python (Flask), HTML, CSS, Bootstrap y
+            JavaScript, que
+            permita visualizar los resultados y patrones encontrados.
+            <br><br>
+            <strong>* </strong>Implementar un sistema básico de autenticación (login) usando Firebase para el acceso
+            seguro a la
+            aplicación.
+
+        </p>
+    </section>
+
+    <section id="especificos" class="container">
+        <h2>EVALUACIÓN DE DATOS</h2>
+        <div class="divider"></div>
+        <p>
+            La base de datos contiene respuestas individuales a cuestionarios, con variables relacionadas a:
+            <br><br>
+            <strong>* </strong>Dimensiones evaluadas (infraestructura, docencia, comunicación, gestión, etc.).
+            <br><br>
+            <strong>* </strong>Perfil del respondente (rol, curso, unidad, etc.).
+            <br><br>
+            <strong>* </strong>Variables de satisfacción global.
+            <br><br>
+            Aspectos positivos:
+            <br><br>
+            <strong>* </strong>Relevancia: los datos reflejan directamente la percepción de la comunidad académica.
+            <br><br>
+            <strong>* </strong>Suficiencia: la base cuenta con 2116 registros.
+        </p>
+    </section>
+
+    <footer>
+        © 2025 Comisión Propia de Evaluación (CPA) - IFSULDEMINAS | Machine Learning
+    </footer>
+</body>
+
+</html>
