@@ -35,8 +35,6 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="#projeto">Proyecto</a></li>
-
                     <li class="nav-item ms-3">
                         <a class="nav-link text-danger" href="#" onclick="logout()"><i
                                 class="bi bi-box-arrow-right fs-5"></i>Cerrar session</a>
@@ -53,5 +51,24 @@
      <footer>
         © 2025 Comisión Propia de Evaluación (CPA) - IFSULDEMINAS | Machine Learning
     </footer>
+
+    <script src="{{ url_for('static', filename='js/firebase.js') }}"></script>
+    <script>
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = "/";
+            }
+        });
+
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "/";
+            }).catch((error) => {
+                console.error("Erro ao sair:", error);
+                alert("Erro ao encerrar sessão!");
+            });
+        }
+
+    </script>
 </body>
 </html>
