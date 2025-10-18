@@ -1,9 +1,3 @@
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: #f7f7f7;
-    color: #222;
-}
-
 .navbar {
     background: #f7f7f7;
 }
@@ -26,16 +20,6 @@ header {
     padding: 4rem 1rem;
 }
 
-section {
-    padding: 3rem 1.5rem;
-}
-
-h2 {
-    color: #0d2f1b;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
 footer {
     background-color: #1b6d3d;
     color: white;
@@ -50,4 +34,8 @@ footer {
     background-color: #a31818;
     margin: 0.5rem auto 2rem;
     border-radius: 4px;
+}
+
+section {
+    padding: 3rem 1.5rem;
 }

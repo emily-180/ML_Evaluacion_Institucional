@@ -14,3 +14,10 @@ def index():
 def home():
     return render_template("home.html")
 
+@app.route("/negocio")
+def negocio():
+    return render_template("negocio.html")
+
+@app.route("/datos")
+def datos():
+    return render_template("datos.html")
