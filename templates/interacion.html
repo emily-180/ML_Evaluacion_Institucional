@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 3: Predicion de Satisfacion de Estudiante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="static/css/style_interacion.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="static/imagens/logo.png" width="80" alt="CPA">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCPA">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCPA">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown">Proyecto</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="negocio">Fase 1: Entendimiento del negocio</a></li>
+                            <li><a class="dropdown-item" href="datos">Fase 2: Entendimiento e ingeniería de datos</a>
+                            </li>
+                            <li><a class="dropdown-item" href="interacion">Fase 3: Predicion de Satisfacion de
+                                    Estudiante</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-danger" href="#" onclick="logout()"><i
+                                class="bi bi-box-arrow-right fs-5"></i>Cerrar session</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="text-center my-4">
+        <h1 class="fw-bold">Predicion de Satisfacion de Estudiante</h1>
+    </header>
+
+    <main class="container">
+        <form id="form-satisfacao" class="p-4 shadow rounded bg-light">
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label">Campus</label>
+                    <select class="form-select" name="campus" required>
+                        <option value="">Selecione...</option>
+                        <option>Carmo de Minas</option>
+                        <option>Inconfidentes</option>
+                        <option>Machado</option>
+                        <option>Muzambinho</option>
+                        <option>Passos</option>
+                        <option>Pouso Alegre</option>
+                        <option>Poços de Caldas</option>
+                        <option>Inconfidentes</option>
+                        <option>Três Corações</option>
+                        <option>Reitoria</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="curso" class="form-label fw-bold">Curso</label>
+                    <select id="curso" name="curso" class="form-select" required>
+                        <option value="">Selecione seu curso...</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-3">
+                    <label class="form-label">Perfil</label>
+                    <select class="form-select" name="perfil" required>
+                        <option value="">Selecione...</option>
+                        <option>Discente do Técnico</option>
+                        <option>Discente do Superior</option>
+                        <option>Docente</option>
+                        <option>TAE</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Série / Período</label>
+                    <select class="form-select" name="serie" required>
+                        <option value="">Selecione...</option>
+                        <option>1º</option>
+                        <option>2º</option>
+                        <option>3º</option>
+                        <option>4º</option>
+                        <option>5º</option>
+                        <option>6º</option>
+                        <option>7º</option>
+                        <option>8º</option>
+                        <option>9º</option>
+                        <option>10º</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <form id="formulario" class="space-y-6">
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">1. Sei obter informações para realizar os procedimentos
+                        administrativos.</label>
+                    <select name="Questão 1. Sei obter informações para realizar os procedimentos administrativos" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Discordo totalmente</option>
+                        <option value="2">Discordo</option>
+                        <option value="3">Nem concorde, nem discordo</option>
+                        <option value="4">Concordo</option>
+                        <option value="5">Concordo totalmente</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">2. O horário de atendimento dos docentes é amplamente
+                        divulgado e de fácil acesso.</label>
+                    <select name="Questão 3. O horário de atendimento dos docentes é amplamente divulgado e de fácil acesso." class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Discordo totalmente</option>
+                        <option value="2">Discordo</option>
+                        <option value="3">Nem concorde, nem discordo</option>
+                        <option value="4">Concordo</option>
+                        <option value="5">Concordo totalmente</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">3. O horário de atendimento dos técnicos administrativos é
+                        amplamente divulgado e de fácil acesso.</label>
+                    <select name="Questão 3. O horário de atendimento dos técnicos administrativos é amplamente divulgado e de fácil acesso" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Discordo totalmente</option>
+                        <option value="2">Discordo</option>
+                        <option value="3">Nem concorde, nem discordo</option>
+                        <option value="4">Concordo</option>
+                        <option value="5">Concordo totalmente</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">4. Como você avalia o ambiente para as aulas quanto à
+                        acústica?</label>
+                    <select name="Questão 11.  Como você avalia o ambiente para as aulas quanto à acústica" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruim</option>
+                        <option value="2">Ruim</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Bom/boa</option>
+                        <option value="5">Muito Bom/boa</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">5. Como você avalia a quantidade de material disponibilizado
+                        para as atividades de laboratório?</label>
+                    <select name="16. Como você avalia a quantidade de material disponibilizado para as atividades de laboratório ?" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruim</option>
+                        <option value="2">Ruim</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Boa</option>
+                        <option value="5">Muito Boa</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">6. Os serviços prestados na cantina são adequados?</label>
+                    <select name="Questão 17. Os serviços prestados na cantina são adequados?" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruins</option>
+                        <option value="2">Ruins</option>
+                        <option value="3">Regulares</option>
+                        <option value="4">Bons/boas</option>
+                        <option value="5">Muito Bons/boas</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">7. Como você avalia o programa de auxílio à participação em
+                        eventos acadêmicos, científicos e tecnológicos?</label>
+                    <select name="Questão 26. Como você avalia o programa de auxílio à participação em eventos acadêmicos, científicos e tecnológicos." class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruim</option>
+                        <option value="2">Ruim</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Bom</option>
+                        <option value="5">Muito Bom</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">8. Como você avalia o programa de acompanhamento de serviço
+                        social?</label>
+                    <select name="Questão 26. Como você avalia o programa de acompanhamento de serviço social" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruim</option>
+                        <option value="2">Ruim</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Bom</option>
+                        <option value="5">Muito Bom</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">9. Como você avalia a organização de grêmios estudantis,
+                        centros acadêmicos e diretórios acadêmicos?</label>
+                    <select name="Questão 26. Como você avalia a organização de grêmios estudantis, centros acadêmicos e diretórios acadêmicos" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruim</option>
+                        <option value="2">Ruim</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Bom</option>
+                        <option value="5">Muito Bom</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="pergunta">
+                    <label class="block font-semibold mb-2">10. Como você avalia a eficiência e eficácia com que os
+                        recursos financeiros do IFSULDEMINAS são aplicados?</label>
+                    <select name="Questão 29. Como você avalia a eficiência e eficácia com que os recursos financeiros do IFSULDEMINAS são aplicados?" class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Selecione</option>
+                        <option value="1">Muito Ruins</option>
+                        <option value="2">Ruins</option>
+                        <option value="3">Regulares</option>
+                        <option value="4">Boas</option>
+                        <option value="5">Muito Boas</option>
+                        <option value="0">Não sei responder</option>
+                        <option value="0">Não quero responder</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success px-4 mt-3">
+                        <i class="bi bi-robot"></i> Enviar e Obter Predição
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultado" class="alert mt-4 text-center d-none"></div>
+    </main>
+
+    <footer class="mt-5 text-center text-muted">
+        © 2025 Comisión Propia de Evaluación (CPA) - IFSULDEMINAS | Machine Learning
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/firebase.js') }}"></script>
+    <script>
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) window.location.href = "/";
+        });
+
+        function logout() {
+            firebase.auth().signOut().then(() => window.location.href = "/");
+        }
+
+        async function carregarCursos() {
+            try {
+                const response = await fetch("/static/data/lista_cursos.csv");
+                const texto = await response.text();
+                const linhas = texto.split("\n").slice(1);
+
+                const select = document.getElementById("curso");
+
+                linhas.forEach(linha => {
+                    const curso = linha.trim();
+                    if (curso) {
+                        const option = document.createElement("option");
+                        option.value = curso;
+                        option.textContent = curso;
+                        select.appendChild(option);
+                    }
+                });
+            } catch (erro) {
+                console.error("Erro ao carregar cursos:", erro);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", carregarCursos);
+        document.getElementById("form-satisfacao").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const dados = {};
+            formData.forEach((valor, chave) => {
+                dados[chave] = Number(valor);
+            });
+
+            const resposta = await fetch("/prever", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dados)
+            });
+
+            const resultado = await resposta.json();
+
+            const divResultado = document.getElementById("resultado");
+            divResultado.classList.remove("d-none");
+            divResultado.textContent = "💡 Nível de satisfação previsto: " + resultado.resultado;
+
+            if (resultado.resultado === "Alta") {
+                divResultado.className = "alert alert-success text-center";
+            } else if (resultado.resultado === "Média") {
+                divResultado.className = "alert alert-warning text-center";
+            }
+            else if (resultado.resultado === "Baixa") {
+                divResultado.className = "alert alert-danger text-center";
+            }
+        });
+    </script>
+</body>
+
+</html>
