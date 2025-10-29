@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 2: Entendimiento e ingeniería de datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="static/css/style_analise.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="static/imagens/logo.png" width="80" alt="CPA">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCPA">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCPA">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown">Proyecto</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="negocio">Fase 1: Entendimiento del negocio</a></li>
+                            <li><a class="dropdown-item" href="analise">Fase 2: Entendimiento e ingeniería de datos</a>
+                            </li>
+                            <li><a class="dropdown-item" href="interacion">Fase 3: Predicion de Satisfacion de
+                                    Estudiante</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-danger" href="#" onclick="logout()"><i
+                                class="bi bi-box-arrow-right fs-5"></i>Cerrar session</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="fw-bold">Fase 2: Entendimiento e ingeniería de datos</h1>
+        <p>Entendimento dos resultados do modelo Decision Tree</p>
+    </header>
+
+    <div class="container">
+        <div class="card p-4 shadow-sm my-4">
+  <h4 class="text-success fw-bold mb-3">Algoritmo e explicação do modelo</h4>
+
+  <p>
+    Utilizamos um modelo de <strong>Decision Tree Classifier</strong>
+    para estimar o nível de satisfação (Alta / Média / Baixa) da comunidade
+    a partir do conjunto de respostas fechadas do questionário institucional.
+  </p>
+
+  <div class="text-center my-3">
+    <button class="btn btn-outline-success fw-semibold d-flex align-items-center mx-auto"
+      type="button" data-bs-toggle="collapse" data-bs-target="#visaoTecnica"
+      aria-expanded="false">
+      <span class="me-2">Visão técnica expandida</span>
+      <span id="iconeExpandir">➕</span>
+    </button>
+  </div>
+
+  <div class="collapse" id="visaoTecnica">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const collapse = document.getElementById('visaoTecnica');
+        const icon = document.getElementById('iconeExpandir');
+
+        collapse.addEventListener('show.bs.collapse', () => icon.textContent = "➖");
+        collapse.addEventListener('hide.bs.collapse', () => icon.textContent = "➕");
+      });
+    </script>
+
+    <hr>
+    <h5 class="fw-semibold">Como o modelo foi treinado</h5>
+    <ul>
+      <li>Pré-processamento das respostas (valores numéricos 0–5)</li>
+      <li>Índice de satisfação = média das respostas</li>
+      <li>Classes: <strong>Baixa · Média · Alta</strong></li>
+      <li>Treino 70% · Teste 30%</li>
+      <li>Modelo: <code>DecisionTreeClassifier(criterion="entropy", max_depth=4)</code></li>
+    </ul>
+
+    <h5 class="fw-semibold mt-3">Métricas do modelo</h5>
+    <ul>
+      <li><strong>Acurácia:</strong> ~0.77%</li>
+      <li><strong>Precision / Recall / F1</strong> por classe</li>
+      <li>Matriz de Confusão para validar o desempenho</li>
+    </ul>
+
+    <hr>
+    <h5 class="fw-semibold mt-3">Imagens do modelo</h5>
+
+    <div class="d-flex flex-column gap-2">
+      <a href="arvore_decisao_corrigida.png" class="btn btn-outline-primary" target="_blank">
+      Ver Árvore de Decisão
+      </a>
+
+      <a href="matriz_confusao.png" class="btn btn-outline-primary" target="_blank">
+         Ver Matriz de Confusão
+      </a>
+    </div>
+
+    <p class="mt-2" style="font-size:0.8rem;color:#555;">
+      (As imagens abrem em nova aba e podem ser baixadas para uso em relatórios)
+    </p>
+
+    <hr>
+    <h5 class="fw-semibold mt-3">Interpretação dos resultados</h5>
+    <ul>
+      <li>Permite identificar o que mais impacta a satisfação</li>
+      <li>Auxilia a CPA e a gestão em ações de melhoria</li>
+      <li>Resultados garantem anonimato e foco institucional</li>
+    </ul>
+
+    <hr>
+    <h5 class="fw-semibold mt-3">Limitações e ética</h5>
+    <ul>
+      <li>Somente respostas fechadas foram utilizadas</li>
+      <li>Possíveis vieses por desbalanceamento entre cursos</li>
+      <li>Não usar o modelo para avaliações individuais</li>
+    </ul>
+  </div>
+</div>
+
+        <h2 class="text-center fw-bold mt-5">Perguntas que mais impactam</h2>
+        <canvas id="graficoImportancia" height="400">
+
+        </canvas>
+
+        <div class="grafico-container">
+            <h2>Média de Satisfação por Curso</h2>
+            <canvas id="graficoCursos"></canvas>
+
+            <div style="text-align: center; margin-top: 10px;">
+                <button id="mostrarTodosBtn">Mostrar todos os cursos</button>
+            </div>
+
+            <div id="listaCursos">
+                <ul id="listaCursosUl"></ul>
+            </div>
+        </div>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-center">Satisfação Média por Unidade</h2>
+        <canvas id="graficoUnidade" width="800" height="400"></canvas>
+
+        <h2 class="text-xl font-semibold mt-8 text-center">Campus mais satisfeito:  {{ campus_mais }}</h2>
+        <h2 class="text-xl font-semibold mt-8 text-center">Campus mais satisfeito:  {{ campus_menos }}</h2>
+
+    </div>
+
+    <footer>
+        © 2025 Comisión Propia de Evaluación (CPA) - IFSULDEMINAS | Machine Learning
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/firebase.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script id="data-importancias" type="application/json">{{ importancias | tojson | safe }}</script>
+
+    <script id="data-media-curso" type="application/json">{{ media_curso | tojson | safe }}</script>
+
+    <script id="data-medias-unidades" type="application/json">{{ medias_unidades | tojson | safe }}</script>
+
+    <script>
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = "/";
+            }
+        });
+
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "/";
+            }).catch((error) => {
+                console.error("Erro ao sair:", error);
+                alert("Erro ao encerrar sessão!");
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const importancias = JSON.parse(document.getElementById('data-importancias').textContent || '[]');
+            const perguntas = importancias.map(i => i.Pergunta);
+            const valores = importancias.map(i => parseFloat(i.Importancia) || 0);
+
+            const mediaCurso = JSON.parse(document.getElementById('data-media-curso').textContent || '{}');
+            const mediasUnidades = JSON.parse(document.getElementById('data-medias-unidades').textContent || '{}');
+
+            const grafImportanciaEl = document.getElementById("graficoImportancia");
+            const grafCursosEl = document.getElementById("graficoCursos");
+            const grafUnidadeEl = document.getElementById("graficoUnidade");
+
+          
+            if (grafImportanciaEl && importancias.length) {
+
+                const topImportantes = importancias
+                    .sort((a, b) => b.Importancia - a.Importancia)
+                    .slice(0, 10);
+
+                const perguntasTop = topImportantes.map(i => {
+                    const texto = i.Pergunta;
+                    return texto.length > 50 ? texto.substring(0, 50) + "..." : texto;
+                });
+
+                const valoresTop = topImportantes.map(i => parseFloat(i.Importancia) || 0);
+
+                const tooltipsPerguntas = topImportantes.map(i => i.Pergunta);
+
+                new Chart(grafImportanciaEl, {
+                    type: 'bar',
+                    data: {
+                        labels: perguntasTop,
+                        datasets: [{
+                            label: "Importância da Pergunta",
+                            data: valoresTop,
+                            backgroundColor: "#4bc0c0"
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Top 10 Perguntas com maior impacto na satisfação'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function (context) {
+                                        return tooltipsPerguntas[context[0].dataIndex];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Importância' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Perguntas' }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            const cursosLabels = Object.keys(mediaCurso || {});
+            const cursosValues = Object.values(mediaCurso || {});
+
+            const cursosOrdenados = cursosLabels
+                .map((curso, i) => ({ curso, media: cursosValues[i] }))
+                .sort((a, b) => b.media - a.media);
+
+            const top10 = cursosOrdenados.slice(0, 10);
+            const outros = cursosOrdenados.slice(10);
+
+            if (grafCursosEl && top10.length) {
+                new Chart(grafCursosEl, {
+                    type: 'bar',
+                    data: {
+                        labels: top10.map(c => c.curso),
+                        datasets: [{
+                            label: "Média de Satisfação",
+                            data: top10.map(c => c.media),
+                            backgroundColor: "#6cc98c"
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Top 10 cursos com maior satisfação média'
+                            }
+                        },
+                        scales: {
+                            x: { ticks: { maxRotation: 45, minRotation: 0 } },
+                            y: { beginAtZero: true, max: 5 }
+                        }
+                    }
+                });
+            }
+
+            const btnMostrar = document.getElementById("mostrarTodosBtn");
+            const listaDiv = document.getElementById("listaCursos");
+            const listaUl = document.getElementById("listaCursosUl");
+
+            if (btnMostrar && listaUl && cursosOrdenados.length) {
+        
+                listaUl.innerHTML = cursosOrdenados.map(c =>
+                    `<li><b>${c.curso}</b> — Média: ${c.media.toFixed(2)}</li>`
+                ).join("");
+
+                btnMostrar.addEventListener("click", () => {
+                    listaDiv.style.display = listaDiv.style.display === "none" ? "block" : "none";
+                    btnMostrar.textContent = listaDiv.style.display === "none"
+                        ? "Mostrar todos os cursos"
+                        : "Ocultar lista";
+                });
+            }
+
+            const unidades = Object.keys(mediasUnidades || {});
+            const medias = Object.values(mediasUnidades || {});
+
+            if (grafUnidadeEl && unidades.length) {
+                new Chart(grafUnidadeEl, {
+                    type: 'bar',
+                    data: {
+                        labels: unidades,
+                        datasets: [{
+                            label: 'Satisfação Média',
+                            data: medias,
+                            backgroundColor: "#4bc0c0",
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: 'Satisfação Média por Unidade (Campus)' }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, max: 5 },
+                            x: { ticks: { maxRotation: 45, minRotation: 0 } }
+                        }
+                    }
+                });
+            }
+
+            console.log("Importâncias:", importancias);
+            console.log("Media por curso:", mediaCurso);
+            console.log("Medias por unidade:", mediasUnidades);
+        });
+    </script>
+</body>
+
+</html>
