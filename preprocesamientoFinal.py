@@ -1,6 +1,6 @@
 import pandas as pd
 
-dados = pd.read_csv("[Copia - Editada] Questionario 2024_2 - Base Formatada - Página1.csv")
+dados = pd.read_csv("static/data/[Copia - Editada] Questionario 2024_2 - Base Formatada - Página1.csv")
 
 escala_geral = {
     "discordo plenamente": 1,

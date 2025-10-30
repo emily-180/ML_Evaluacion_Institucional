@@ -49,10 +49,10 @@
         </div>
     </nav>
 
-    <header class="text-center my-4">
+    <header>
         <h1 class="fw-bold">Predicion de Satisfacion</h1>
     </header>
-
+    
     <main class="container">
         <form id="form-satisfacao" class="p-4 shadow rounded bg-light">
 
@@ -60,7 +60,7 @@
                 <div class="col-md-3">
                     <label class="form-label">Campus</label>
                     <select class="form-select" name="campus" required>
-                        <option value="">Selecione...</option>
+                        <option value="">Seleccione...</option>
                         <option>Carmo de Minas</option>
                         <option>Inconfidentes</option>
                         <option>Machado</option>
@@ -76,7 +76,7 @@
                 <div class="mb-3">
                     <label for="curso" class="form-label fw-bold">Curso</label>
                     <select id="curso" name="curso" class="form-select" required>
-                        <option value="">Selecione seu curso...</option>
+                        <option value="">Selecciona tu curso...</option>
                     </select>
                 </div>
 
@@ -84,7 +84,7 @@
                 <div class="col-md-3">
                     <label class="form-label">Perfil</label>
                     <select class="form-select" name="perfil" required>
-                        <option value="">Selecione...</option>
+                        <option value="">Seleccione...</option>
                         <option>Discente do Técnico</option>
                         <option>Discente do Superior</option>
                         <option>Docente</option>
@@ -93,9 +93,9 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label class="form-label">Série / Período</label>
+                    <label class="form-label">Serie / Período</label>
                     <select class="form-select" name="serie" required>
-                        <option value="">Selecione...</option>
+                        <option value="">Seleccione...</option>
                         <option>1º</option>
                         <option>2º</option>
                         <option>3º</option>
@@ -114,157 +114,177 @@
 
             <form id="formulario" class="space-y-6">
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">1. Sei obter informações para realizar os procedimentos
-                        administrativos.</label>
-                    <select name="Questão 1. Sei obter informações para realizar os procedimentos administrativos" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Discordo totalmente</option>
-                        <option value="2">Discordo</option>
-                        <option value="3">Nem concorde, nem discordo</option>
-                        <option value="4">Concordo</option>
-                        <option value="5">Concordo totalmente</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                    <label class="block font-semibold mb-2">1. Sé cómo obtener información para realizar trámites
+                        administrativos..</label>
+                    <select name="Questão 1. Sei obter informações para realizar os procedimentos administrativos"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Totalmente en desacuerdo</option>
+                        <option value="2">En desacuerdo</option>
+                        <option value="3">Ni de acuerdo ni en desacuerdo</option>
+                        <option value="4">De acuerdo</option>
+                        <option value="5">Totalmente de acuerdo</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
+
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">2. O horário de atendimento dos docentes é amplamente
-                        divulgado e de fácil acesso.</label>
-                    <select name="Questão 3. O horário de atendimento dos docentes é amplamente divulgado e de fácil acesso." class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Discordo totalmente</option>
-                        <option value="2">Discordo</option>
-                        <option value="3">Nem concorde, nem discordo</option>
-                        <option value="4">Concordo</option>
-                        <option value="5">Concordo totalmente</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                    <label class="block font-semibold mb-2">2. El horario de atención al alumnado del profesorado se
+                        publicita ampliamente y es fácilmente accesible.</label>
+                    <select
+                        name="Questão 3. O horário de atendimento dos docentes é amplamente divulgado e de fácil acesso."
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Totalmente en desacuerdo</option>
+                        <option value="2">En desacuerdo</option>
+                        <option value="3">Ni de acuerdo ni en desacuerdo</option>
+                        <option value="4">De acuerdo</option>
+                        <option value="5">Totalmente de acuerdo</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
+
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">3. O horário de atendimento dos técnicos administrativos é
-                        amplamente divulgado e de fácil acesso.</label>
-                    <select name="Questão 3. O horário de atendimento dos técnicos administrativos é amplamente divulgado e de fácil acesso" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Discordo totalmente</option>
-                        <option value="2">Discordo</option>
-                        <option value="3">Nem concorde, nem discordo</option>
-                        <option value="4">Concordo</option>
-                        <option value="5">Concordo totalmente</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                    <label class="block font-semibold mb-2">3. El horario de atención al público del personal
+                        administrativo es ampliamente difundido y fácilmente accesible.</label>
+                    <select
+                        name="Questão 3. O horário de atendimento dos técnicos administrativos é amplamente divulgado e de fácil acesso"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Totalmente en desacuerdo</option>
+                        <option value="2">En desacuerdo</option>
+                        <option value="3">Ni de acuerdo ni en desacuerdo</option>
+                        <option value="4">De acuerdo</option>
+                        <option value="5">Totalmente de acuerdo</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
+
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">4. Como você avalia o ambiente para as aulas quanto à
+                    <label class="block font-semibold mb-2">4. ¿Cómo calificaría el ambiente del aula en términos de
                         acústica?</label>
-                    <select name="Questão 11.  Como você avalia o ambiente para as aulas quanto à acústica" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruim</option>
-                        <option value="2">Ruim</option>
+                    <select name="Questão 11.  Como você avalia o ambiente para as aulas quanto à acústica"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malo/a</option>
+                        <option value="2">Malo/a</option>
                         <option value="3">Regular</option>
-                        <option value="4">Bom/boa</option>
-                        <option value="5">Muito Bom/boa</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Bueno/a</option>
+                        <option value="5">Muy bueno/a</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">5. Como você avalia a quantidade de material disponibilizado
-                        para as atividades de laboratório?</label>
-                    <select name="16. Como você avalia a quantidade de material disponibilizado para as atividades de laboratório ?" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruim</option>
-                        <option value="2">Ruim</option>
+                    <label class="block font-semibold mb-2">5. ¿Cómo calificaría la cantidad de material proporcionado
+                        para las actividades de laboratorio?</label>
+                    <select
+                        name="16. Como você avalia a quantidade de material disponibilizado para as atividades de laboratório ?"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malo</option>
+                        <option value="2">Malo</option>
                         <option value="3">Regular</option>
-                        <option value="4">Boa</option>
-                        <option value="5">Muito Boa</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Buena</option>
+                        <option value="5">Muy buena</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">6. Os serviços prestados na cantina são adequados?</label>
-                    <select name="Questão 17. Os serviços prestados na cantina são adequados?" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruins</option>
-                        <option value="2">Ruins</option>
+                    <label class="block font-semibold mb-2">6. ¿Son adecuados los servicios que se prestan en la
+                        cafetería?</label>
+                    <select name="Questão 17. Os serviços prestados na cantina são adequados?"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malos</option>
+                        <option value="2">Malos</option>
                         <option value="3">Regulares</option>
-                        <option value="4">Bons/boas</option>
-                        <option value="5">Muito Bons/boas</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Buenos/as</option>
+                        <option value="5">Muy buenos/as</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">7. Como você avalia o programa de auxílio à participação em
-                        eventos acadêmicos, científicos e tecnológicos?</label>
-                    <select name="Questão 26. Como você avalia o programa de auxílio à participação em eventos acadêmicos, científicos e tecnológicos." class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruim</option>
-                        <option value="2">Ruim</option>
+                    <label class="block font-semibold mb-2">7. ¿Cómo calificaría el programa que apoya la participación
+                        en eventos académicos, científicos y tecnológicos?</label>
+                    <select
+                        name="Questão 26. Como você avalia o programa de auxílio à participação em eventos acadêmicos, científicos e tecnológicos."
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malo/a</option>
+                        <option value="2">Malo</option>
                         <option value="3">Regular</option>
-                        <option value="4">Bom</option>
-                        <option value="5">Muito Bom</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Bueno</option>
+                        <option value="5">Muy bueno</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">8. Como você avalia o programa de acompanhamento de serviço
-                        social?</label>
-                    <select name="Questão 26. Como você avalia o programa de acompanhamento de serviço social" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruim</option>
-                        <option value="2">Ruim</option>
+                    <label class="block font-semibold mb-2">8. ¿Cómo calificaría el programa de seguimiento de servicios
+                        sociales?</label>
+                    <select name="Questão 26. Como você avalia o programa de acompanhamento de serviço social"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malo</option>
+                        <option value="2">Malo</option>
                         <option value="3">Regular</option>
-                        <option value="4">Bom</option>
-                        <option value="5">Muito Bom</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Bueno</option>
+                        <option value="5">Muy bueno</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">9. Como você avalia a organização de grêmios estudantis,
-                        centros acadêmicos e diretórios acadêmicos?</label>
-                    <select name="Questão 26. Como você avalia a organização de grêmios estudantis, centros acadêmicos e diretórios acadêmicos" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruim</option>
-                        <option value="2">Ruim</option>
+                    <label class="block font-semibold mb-2">9. ¿Cómo calificaría la organización de las asociaciones
+                        estudiantiles, los centros académicos y los directorios académicos?</label>
+                    <select
+                        name="Questão 26. Como você avalia a organização de grêmios estudantis, centros acadêmicos e diretórios acadêmicos"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malo</option>
+                        <option value="2">Malo</option>
                         <option value="3">Regular</option>
-                        <option value="4">Bom</option>
-                        <option value="5">Muito Bom</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                        <option value="4">Bueno</option>
+                        <option value="5">Muy bueno</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="pergunta">
-                    <label class="block font-semibold mb-2">10. Como você avalia a eficiência e eficácia com que os
-                        recursos financeiros do IFSULDEMINAS são aplicados?</label>
-                    <select name="Questão 29. Como você avalia a eficiência e eficácia com que os recursos financeiros do IFSULDEMINAS são aplicados?" class="w-full border border-gray-300 rounded-lg p-2" required>
-                        <option value="">Selecione</option>
-                        <option value="1">Muito Ruins</option>
-                        <option value="2">Ruins</option>
-                        <option value="3">Regulares</option>
-                        <option value="4">Boas</option>
-                        <option value="5">Muito Boas</option>
-                        <option value="0">Não sei responder</option>
-                        <option value="0">Não quero responder</option>
+                    <label class="block font-semibold mb-2">10. ¿Cómo calificaría la eficiencia y la eficacia con que se
+                        utilizan los recursos financieros de IFSULDEMINAS?</label>
+                    <select
+                        name="Questão 29. Como você avalia a eficiência e eficácia com que os recursos financeiros do IFSULDEMINAS são aplicados?"
+                        class="w-full border border-gray-300 rounded-lg p-2" required>
+                        <option value="">Seleccione</option>
+                        <option value="1">Muy malos</option>
+                        <option value="2">Malos</option>
+                        <option value="3">Regular</option>
+                        <option value="4">Buenas</option>
+                        <option value="5">Muy bueno/a</option>
+                        <option value="0">No sé responder</option>
+                        <option value="0">No quiero responder</option>
                     </select>
                 </div>
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-success px-4 mt-3">
-                        <i class="bi bi-robot"></i> Enviar e Obter Predição
+                        <i class="bi bi-robot"></i> Predicción de envío y recepción
                     </button>
                 </div>
             </form>
@@ -272,7 +292,7 @@
             <div id="resultado" class="alert mt-4 text-center d-none"></div>
     </main>
 
-    <footer class="mt-5 text-center text-muted">
+    <footer>
         © 2025 Comisión Propia de Evaluación (CPA) - IFSULDEMINAS | Machine Learning
     </footer>
 
