@@ -56,4 +56,22 @@ def prever():
 
     return jsonify({"resultado": predicao})
 
-    
+@app.route("/analise")
+def analise():
+    importancias = pd.read_csv("static/data/importancias.csv")
+    media_curso = pd.read_csv("static/data/media_curso.csv")
+
+    resultado_unidades = joblib.load("resultado_unidades.pkl")
+    medias_unidades = resultado_unidades["medias_unidades"]
+    campus_mais = resultado_unidades["mais_satisfeito"]
+    campus_menos = resultado_unidades["menos_satisfeito"]
+
+    return render_template(
+        "analise.html",
+        importancias=importancias.to_dict(orient="records"),
+        media_curso=media_curso.set_index("Curso")["Média"].to_dict(),
+        medias_unidades=medias_unidades.to_dict(),  
+        campus_mais=campus_mais,
+        campus_menos=campus_menos
+    )
+
