@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 
 modelo = joblib.load("modelo_satisfacao.pkl")
-dados = pd.read_csv("dados_tratados_final.csv")
+dados = pd.read_csv("static/data/dados_tratados_final.csv")
 
 colunas_excluir = ['Perfil_', 'Unidade_', 'Serie_', 'Curso_']
 colunas_perguntas = [
@@ -33,7 +33,6 @@ importancias = importancias.sort_values(by="Importancia", ascending=False)
 importancias = importancias.head(10)
 
 importancias.to_csv("static/data/importancias.csv", index=False)
-print("✅ Importâncias filtradas e top 10 geradas!")
 
 colunas_cursos = [col for col in dados.columns if col.startswith("Curso_")]
 media_por_curso = {}
@@ -50,7 +49,6 @@ media_curso = pd.DataFrame({
 }).sort_values(by="Média", ascending=False)
 
 media_curso.to_csv("static/data/media_curso.csv", index=False)
-print("✅ 'media_curso.csv' gerado com sucesso!")
 
 coluna_unidade = None
 for c in dados.columns:
@@ -87,7 +85,3 @@ resultado = {
 }
 
 joblib.dump(resultado, "resultado_unidades.pkl")
-
-print("✅ Dados gerados com sucesso!")
-print("Mais satisfeito:", mais_satisfeito)
-print("Menos satisfeito:", menos_satisfeito)

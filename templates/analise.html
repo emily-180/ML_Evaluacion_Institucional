@@ -36,8 +36,7 @@
                             <li><a class="dropdown-item" href="negocio">Fase 1: Entendimiento del negocio</a></li>
                             <li><a class="dropdown-item" href="analise">Fase 2: Entendimiento e ingeniería de datos</a>
                             </li>
-                            <li><a class="dropdown-item" href="interacion">Fase 3: Predicion de Satisfacion de
-                                    Estudiante</a></li>
+                            <li><a class="dropdown-item" href="interacion">Fase 3: Predicion de Satisfacion</a></li>
                         </ul>
                     </li>
 
@@ -52,113 +51,103 @@
 
     <header>
         <h1 class="fw-bold">Fase 2: Entendimiento e ingeniería de datos</h1>
-        <p>Entendimento dos resultados do modelo Decision Tree</p>
     </header>
 
     <div class="container">
         <div class="card p-4 shadow-sm my-4">
-  <h4 class="text-success fw-bold mb-3">Algoritmo e explicação do modelo</h4>
+            <h4 class="text-success fw-bold mb-3">Explicación del algoritmo y del modelo</h4>
 
-  <p>
-    Utilizamos um modelo de <strong>Decision Tree Classifier</strong>
-    para estimar o nível de satisfação (Alta / Média / Baixa) da comunidade
-    a partir do conjunto de respostas fechadas do questionário institucional.
-  </p>
+            <p>
+                Utilizamos un modelo de clasificador de <strong>Decision Tree Classifier</strong>
+                para estimar el nivel de satisfacción de la comunidad (Alto/Medio/Bajo) a partir del conjunto de
+                respuestas cerradas del cuestionario institucional.
+            </p>
 
-  <div class="text-center my-3">
-    <button class="btn btn-outline-success fw-semibold d-flex align-items-center mx-auto"
-      type="button" data-bs-toggle="collapse" data-bs-target="#visaoTecnica"
-      aria-expanded="false">
-      <span class="me-2">Visão técnica expandida</span>
-      <span id="iconeExpandir">➕</span>
-    </button>
-  </div>
+            <div class="text-center my-3">
+                <button class="btn btn-outline-success fw-semibold d-flex align-items-center mx-auto" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#visaoTecnica" aria-expanded="false">
+                    <span class="me-2">Descripción técnica ampliada</span>
+                    <span id="iconeExpandir">➕</span>
+                </button>
+            </div>
 
-  <div class="collapse" id="visaoTecnica">
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const collapse = document.getElementById('visaoTecnica');
-        const icon = document.getElementById('iconeExpandir');
+            <div class="collapse" id="visaoTecnica">
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const collapse = document.getElementById('visaoTecnica');
+                        const icon = document.getElementById('iconeExpandir');
 
-        collapse.addEventListener('show.bs.collapse', () => icon.textContent = "➖");
-        collapse.addEventListener('hide.bs.collapse', () => icon.textContent = "➕");
-      });
-    </script>
+                        collapse.addEventListener('show.bs.collapse', () => icon.textContent = "➖");
+                        collapse.addEventListener('hide.bs.collapse', () => icon.textContent = "➕");
+                    });
+                </script>
 
-    <hr>
-    <h5 class="fw-semibold">Como o modelo foi treinado</h5>
-    <ul>
-      <li>Pré-processamento das respostas (valores numéricos 0–5)</li>
-      <li>Índice de satisfação = média das respostas</li>
-      <li>Classes: <strong>Baixa · Média · Alta</strong></li>
-      <li>Treino 70% · Teste 30%</li>
-      <li>Modelo: <code>DecisionTreeClassifier(criterion="entropy", max_depth=4)</code></li>
-    </ul>
+                <hr>
+                <h5 class="fw-semibold">¿Cómo se entrenó el modelo?</h5>
+                <ul>
+                    <li>Preprocesamiento de respuestas (valores numéricos de 0 a 5)</li>
+                    <li>Índice de satisfacción = Promedio de respuestas</li>
+                    <li>Clases: <strong>Baja · Media · Alta</strong></li>
+                    <li>Entrenamiento 70 % · Pruebas 30 %</li>
+                    <li>Model: <code>DecisionTreeClassifier(criterion="entropy", max_depth=4)</code></li>
+                </ul>
 
-    <h5 class="fw-semibold mt-3">Métricas do modelo</h5>
-    <ul>
-      <li><strong>Acurácia:</strong> ~0.77%</li>
-      <li><strong>Precision / Recall / F1</strong> por classe</li>
-      <li>Matriz de Confusão para validar o desempenho</li>
-    </ul>
+                <h5 class="fw-semibold mt-3">Métricas del modelo</h5>
+                <ul>
+                    <li><strong>Acurácia:</strong> ~0.77%</li>
+                    <li><strong>Precision / Recall / F1</strong> por classe</li>
+                    <a href="/arvore" class="btn btn-outline-primary" target="_blank">
+                         Ver Árvore de Decisão
+                    </a>
+                    <a href="/matriz" class="btn btn-outline-primary" target="_blank">
+                         Ver Matriz de Confusão
+                    </a>
 
-    <hr>
-    <h5 class="fw-semibold mt-3">Imagens do modelo</h5>
 
-    <div class="d-flex flex-column gap-2">
-      <a href="arvore_decisao_corrigida.png" class="btn btn-outline-primary" target="_blank">
-      Ver Árvore de Decisão
-      </a>
+                    <p class="mt-2" style="font-size:0.8rem;color:#555;">(As imagens abrem em nova aba e podem ser
+                        baixadas para uso em relatórios)</p>
+                </ul>
 
-      <a href="matriz_confusao.png" class="btn btn-outline-primary" target="_blank">
-         Ver Matriz de Confusão
-      </a>
-    </div>
+                <hr>
+                <h5 class="fw-semibold mt-3">Interpretación de resultados</h5>
+                <ul>
+                    <li>Permite identificar los factores que más influyen en la satisfacción.</li>
+                    <li>Ayuda al contador y a la gerencia en la implementación de acciones de mejora.</li>
+                </ul>
 
-    <p class="mt-2" style="font-size:0.8rem;color:#555;">
-      (As imagens abrem em nova aba e podem ser baixadas para uso em relatórios)
-    </p>
+                <hr>
+                <h5 class="fw-semibold mt-3">Limitaciones y ética</h5>
+                <ul>
+                    <li>Solo se utilizaron respuestas cerradas</li>
+                    <li>Posibles sesgos debido al desequilibrio entre los cursos</li>
+                    <li>No utilice el modelo para evaluaciones individuales</li>
+                </ul>
 
-    <hr>
-    <h5 class="fw-semibold mt-3">Interpretação dos resultados</h5>
-    <ul>
-      <li>Permite identificar o que mais impacta a satisfação</li>
-      <li>Auxilia a CPA e a gestão em ações de melhoria</li>
-      <li>Resultados garantem anonimato e foco institucional</li>
-    </ul>
+            </div>
+        </div>
 
-    <hr>
-    <h5 class="fw-semibold mt-3">Limitações e ética</h5>
-    <ul>
-      <li>Somente respostas fechadas foram utilizadas</li>
-      <li>Possíveis vieses por desbalanceamento entre cursos</li>
-      <li>Não usar o modelo para avaliações individuais</li>
-    </ul>
-  </div>
-</div>
-
-        <h2 class="text-center fw-bold mt-5">Perguntas que mais impactam</h2>
+        <h2 class="text-center fw-bold mt-5">Preguntas que tienen el mayor impacto</h2>
         <canvas id="graficoImportancia" height="400">
 
         </canvas>
 
         <div class="grafico-container">
-            <h2>Média de Satisfação por Curso</h2>
+            <h2>Satisfacción promedio por curso</h2>
             <canvas id="graficoCursos"></canvas>
 
             <div style="text-align: center; margin-top: 10px;">
-                <button id="mostrarTodosBtn">Mostrar todos os cursos</button>
+                <button id="mostrarTodosBtn">Mostrar todos los cursos</button>
             </div>
 
             <div id="listaCursos">
                 <ul id="listaCursosUl"></ul>
             </div>
         </div>
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-center">Satisfação Média por Unidade</h2>
+        <h2 class="text-2xl font-bold mt-10 mb-4 text-center">Satisfacción media por unidad</h2>
         <canvas id="graficoUnidade" width="800" height="400"></canvas>
 
-        <h2 class="text-xl font-semibold mt-8 text-center">Campus mais satisfeito:  {{ campus_mais }}</h2>
-        <h2 class="text-xl font-semibold mt-8 text-center">Campus mais satisfeito:  {{ campus_menos }}</h2>
+        <h2 class="text-xl font-semibold mt-8 text-center">Campus más satisfecho: {{ campus_mais }}</h2>
+        <h2 class="text-xl font-semibold mt-8 text-center">Campus con menor satisfacción: {{ campus_menos }}</h2>
 
     </div>
 
@@ -204,7 +193,7 @@
             const grafCursosEl = document.getElementById("graficoCursos");
             const grafUnidadeEl = document.getElementById("graficoUnidade");
 
-          
+
             if (grafImportanciaEl && importancias.length) {
 
                 const topImportantes = importancias
@@ -225,7 +214,7 @@
                     data: {
                         labels: perguntasTop,
                         datasets: [{
-                            label: "Importância da Pergunta",
+                            label: "Importancia de la pregunta",
                             data: valoresTop,
                             backgroundColor: "#4bc0c0"
                         }]
@@ -237,7 +226,7 @@
                             legend: { display: false },
                             title: {
                                 display: true,
-                                text: 'Top 10 Perguntas com maior impacto na satisfação'
+                                text: 'Las 10 preguntas principales con mayor impacto en la satisfacción'
                             },
                             tooltip: {
                                 callbacks: {
@@ -250,16 +239,16 @@
                         scales: {
                             x: {
                                 beginAtZero: true,
-                                title: { display: true, text: 'Importância' }
+                                title: { display: true, text: 'Importancia' }
                             },
                             y: {
-                                title: { display: true, text: 'Perguntas' }
+                                title: { display: true, text: 'Preguntas' }
                             }
                         }
                     }
                 });
             }
-            
+
             const cursosLabels = Object.keys(mediaCurso || {});
             const cursosValues = Object.values(mediaCurso || {});
 
@@ -276,7 +265,7 @@
                     data: {
                         labels: top10.map(c => c.curso),
                         datasets: [{
-                            label: "Média de Satisfação",
+                            label: "Média de Satisfacción",
                             data: top10.map(c => c.media),
                             backgroundColor: "#6cc98c"
                         }]
@@ -287,7 +276,7 @@
                             legend: { display: false },
                             title: {
                                 display: true,
-                                text: 'Top 10 cursos com maior satisfação média'
+                                text: 'Los 10 cursos con mayor satisfacción promedio.'
                             }
                         },
                         scales: {
@@ -303,7 +292,7 @@
             const listaUl = document.getElementById("listaCursosUl");
 
             if (btnMostrar && listaUl && cursosOrdenados.length) {
-        
+
                 listaUl.innerHTML = cursosOrdenados.map(c =>
                     `<li><b>${c.curso}</b> — Média: ${c.media.toFixed(2)}</li>`
                 ).join("");
@@ -311,7 +300,7 @@
                 btnMostrar.addEventListener("click", () => {
                     listaDiv.style.display = listaDiv.style.display === "none" ? "block" : "none";
                     btnMostrar.textContent = listaDiv.style.display === "none"
-                        ? "Mostrar todos os cursos"
+                        ? "Mostrar todos los cursos"
                         : "Ocultar lista";
                 });
             }
@@ -325,7 +314,7 @@
                     data: {
                         labels: unidades,
                         datasets: [{
-                            label: 'Satisfação Média',
+                            label: 'Satisfacción Media',
                             data: medias,
                             backgroundColor: "#4bc0c0",
                             borderWidth: 1
@@ -335,7 +324,7 @@
                         responsive: true,
                         plugins: {
                             legend: { display: false },
-                            title: { display: true, text: 'Satisfação Média por Unidade (Campus)' }
+                            title: { display: true, text: 'Satisfacción Media por Campus' }
                         },
                         scales: {
                             y: { beginAtZero: true, max: 5 },
@@ -344,10 +333,6 @@
                     }
                 });
             }
-
-            console.log("Importâncias:", importancias);
-            console.log("Media por curso:", mediaCurso);
-            console.log("Medias por unidade:", mediasUnidades);
         });
     </script>
 </body>

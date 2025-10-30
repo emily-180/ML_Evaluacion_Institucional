@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import seaborn as sns
 import joblib
 
-dados = pd.read_csv('dados_tratados_final.csv')
+dados = pd.read_csv('static/data/dados_tratados_final.csv')
 
 colunas_excluir = ['Perfil_', 'Unidade_', 'Serie_', 'Curso_']
 colunas_perguntas = [c for c in dados.columns if not any(p in c for p in colunas_excluir)]
@@ -41,8 +41,8 @@ plt.show()
 
 y_pred = modelo.predict(X_test)
 
-print("\n📌 ACURÁCIA:", round(accuracy_score(y_test, y_pred), 4))
-print("\n📌 CLASSIFICATION REPORT:")
+print("\n ACURÁCIA:", round(accuracy_score(y_test, y_pred), 4))
+print("\n CLASSIFICATION REPORT:")
 print(classification_report(y_test, y_pred))
 
 mat_confusao = confusion_matrix(y_test, y_pred)
@@ -68,4 +68,3 @@ print(importancias.head(10))
 
 joblib.dump(modelo, "modelo_satisfacao.pkl")
 joblib.dump(X.columns.tolist(), "colunas_modelo.pkl")
-print("Modelo e colunas salvos com sucesso!")

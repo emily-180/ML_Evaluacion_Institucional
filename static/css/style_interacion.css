@@ -1,33 +1,35 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f7f7f7;
-  color: #222;
-}
-
 .navbar {
-  background: #f7f7f7;
+    background: #f7f7f7;
 }
 
 .navbar-brand,
 .nav-link {
-  color: black !important;
+    color: black !important;
 }
 
 .navbar-brand:hover,
 .nav-link:hover,
 .dropdown-item:hover {
-  color: #a31818 !important;
+    color: #a31818 !important;
 }
 
 header {
-  background-color: #1b6d3d;
-  color: white;
-  text-align: center;
-  padding: 4rem 1rem;
+    background-color: #1b6d3d;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+footer {
+    background-color: #1b6d3d;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
 }
 
 section {
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .pergunta {

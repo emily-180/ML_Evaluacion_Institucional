@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, session, url_for, request, jsonify
+from flask import Flask, render_template, redirect, session, url_for, request, jsonify, send_from_directory
 import joblib
 import pandas as pd
+import os
+
 
 app = Flask(__name__)
 
@@ -75,3 +77,10 @@ def analise():
         campus_menos=campus_menos
     )
 
+@app.route("/arvore")
+def arvore():
+    return send_from_directory("static/imagens", "arvore_decisao_expandida.png")
+
+@app.route("/matriz")
+def matriz():
+    return send_from_directory("static/imagens", "matriz_confusao.png")
